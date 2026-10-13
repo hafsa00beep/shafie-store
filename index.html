@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>الشافعي ستور - Shafie Store</title>
-    <!-- خطوط جوجل: خط شبكي للعنوان + خط قريب من خط آيفون (SF Pro / Tajawal) -->
+    <!-- خطوط عربية متنوعة وخطوط آيفون -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&family=Reem+Kufi:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&family=Reem+Kufi:wght@500&family=El+Messiri:wght@600&family=Amiri:wght@700&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -15,8 +15,8 @@
             --soft-pink: #fff0f3;
             --dark-pink: #d87093;
             --text-color: #4a4a4a;
-            --font-family: 'Tajawal', -apple-system, BlinkMacSystemFont, sans-serif; /* قريب جداً من خط الآيفون */
-            --header-font: 'Aref Ruqaa', cursive; /* خط مشبك للعنوان */
+            --font-family: 'Tajawal', sans-serif;
+            --header-font: 'Aref Ruqaa', cursive;
         }
 
         * {
@@ -29,15 +29,15 @@
         body {
             font-family: var(--font-family);
             color: var(--text-color);
-            background-image: url('୨୧𓂃𓈒𓏸.jpg'); /* اسم صورة الوردة المرفقة */
-            background-size: cover;
-            background-position: center;
+            background-image: url('୨୧𓂃𓈒𓏸.jpg');
+            background-size: 250px; /* تصغير حجم الوردة بالخلفية */
+            background-repeat: repeat;
             background-attachment: fixed;
             min-height: 100vh;
             overflow-x: hidden;
+            background-color: #fff9fa;
         }
 
-        /* شريط حقوق الملكية العلوي */
         .by-hafsa {
             position: fixed;
             top: 5px;
@@ -46,18 +46,15 @@
             color: #888;
             z-index: 1000;
             font-family: sans-serif;
-            letter-spacing: 1px;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.7);
             padding: 2px 8px;
             border-radius: 10px;
-            backdrop-filter: blur(3px);
         }
 
-        /* الهيدر العلوي */
         header {
             text-align: center;
-            padding: 20px 10px 10px;
-            background: rgba(255, 255, 255, 0.4);
+            padding: 15px 10px;
+            background: rgba(255, 255, 255, 0.6);
             backdrop-filter: blur(5px);
             border-bottom: 2px solid rgba(255, 183, 197, 0.5);
             position: relative;
@@ -65,12 +62,11 @@
 
         .store-title {
             font-family: var(--header-font);
-            font-size: 38px;
+            font-size: 34px;
             color: var(--dark-pink);
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
         }
 
-        /* زر دخول الأدمن */
         .admin-btn {
             position: absolute;
             top: 15px;
@@ -83,10 +79,8 @@
             cursor: pointer;
             font-size: 12px;
             font-family: var(--font-family);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
-        /* حاوية التقليب (Swiper Slider Effect) */
         .slider-container {
             display: flex;
             overflow-x: auto;
@@ -112,120 +106,130 @@
             justify-content: center;
         }
 
-        /* البطاقات المنسدلة ذات الشفافية بسيطة لظهور الخلفية */
         .glass-card {
-            background: rgba(255, 255, 255, 0.72); /* شفافية بسيطة للوردة */
+            background: rgba(255, 255, 255, 0.78);
             backdrop-filter: blur(8px);
             -webkit-backdrop-filter: blur(8px);
             border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.8);
+            border: 1px solid rgba(255, 255, 255, 0.9);
             box-shadow: 0 8px 25px rgba(216, 112, 147, 0.15);
             width: 90%;
             max-width: 420px;
-            padding: 25px;
+            padding: 20px;
             text-align: center;
             margin: auto;
+            max-height: 80vh;
+            overflow-y: auto;
         }
 
         .welcome-card h2 {
             color: var(--dark-pink);
-            margin-bottom: 15px;
-            font-size: 24px;
+            margin-bottom: 12px;
+            font-size: 22px;
         }
 
         .welcome-card p {
-            font-size: 17px;
+            font-size: 16px;
             line-height: 1.6;
             color: #555;
         }
 
         .product-img {
             width: 100%;
-            max-height: 250px;
+            max-height: 200px;
             object-fit: cover;
-            border-radius: 15px;
-            margin-bottom: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border-radius: 12px;
+            margin-bottom: 10px;
         }
 
         .product-title {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: bold;
             color: #333;
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
 
         .product-desc {
-            font-size: 15px;
+            font-size: 14px;
             color: #666;
-            margin-bottom: 15px;
+            margin-bottom: 8px;
+        }
+
+        .product-shipping {
+            font-size: 13px;
+            color: var(--dark-pink);
+            background: rgba(255, 183, 197, 0.2);
+            padding: 6px;
+            border-radius: 8px;
+            margin-bottom: 12px;
         }
 
         .order-btn {
             background: linear-gradient(135deg, #ffb7c5, #d87093);
             color: white;
             border: none;
-            padding: 10px 25px;
+            padding: 8px 20px;
             border-radius: 25px;
-            font-size: 16px;
+            font-size: 15px;
             font-family: var(--font-family);
             font-weight: bold;
             cursor: pointer;
             box-shadow: 0 4px 12px rgba(216, 112, 147, 0.3);
-            transition: transform 0.2s;
         }
 
-        .order-btn:active {
-            transform: scale(0.95);
+        /* صفحة الحجز المستقلة */
+        .checkout-container {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(255, 255, 255, 0.95);
+            z-index: 1500;
+            padding: 20px;
+            overflow-y: auto;
+            text-align: right;
         }
 
-        /* شريط التنقل للأسفل والروابط */
         footer {
             position: fixed;
             bottom: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.6);
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(5px);
             padding: 10px;
             text-align: center;
             border-top: 1px solid rgba(255, 183, 197, 0.4);
             display: flex;
             justify-content: center;
-            gap: 15px;
+            gap: 20px;
         }
 
         footer a {
             color: var(--dark-pink);
             text-decoration: none;
             font-size: 13px;
-            font-weight: 500;
+            font-weight: 600;
         }
 
-        /* لوحة التحكم (Admin Panel Drawer) */
         .admin-panel {
             display: none;
             position: fixed;
             top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.96);
             z-index: 2000;
             padding: 20px;
             overflow-y: auto;
-        }
-
-        .admin-panel h3 {
-            color: var(--dark-pink);
-            margin-bottom: 15px;
+            text-align: right;
         }
 
         .input-group {
             margin-bottom: 12px;
-            text-align: right;
         }
 
         .input-group label {
             display: block;
             font-size: 13px;
             margin-bottom: 4px;
+            font-weight: bold;
         }
 
         .input-group input, .input-group select, .input-group textarea {
@@ -236,7 +240,7 @@
             font-family: var(--font-family);
         }
 
-        .close-admin {
+        .close-btn {
             background: #aaa;
             color: white;
             border: none;
@@ -253,113 +257,144 @@
 
     <header>
         <button class="admin-btn" onclick="openAdminModal()">دخول الأدمن 🔐</button>
-        <h1 class="store-title" id="mainTitle">شافعي ستور</h1>
+        <h1 class="store-title">شافعي ستور</h1>
     </header>
 
-    <!-- منطقة التقليب يمين وشمال -->
+    <!-- منطقة التقليب -->
     <div class="slider-container" id="slider">
-        
-        <!-- الصفحة الأولى: الترحيب -->
         <div class="page">
             <div class="glass-card welcome-card">
                 <h2>أهلاً بحضرتك يا فندم 🌸</h2>
-                <p>متوفر عندنا أرقى وأشيك التشكيلات الخاصة بـ <b>شافعي ستور</b>.<br> اسحبي الشاشة لليمين لتصفح المنتجات والقطع المتاحة عندنا ✨</p>
+                <p>متوفر عندنا أرقى وأشيك التشكيلات الخاصة بـ <b>شافعي ستور</b>.<br> اسحبي الشاشة لليمين لتصفح المنتجات والقطع المتاحة لدينا ✨</p>
             </div>
         </div>
-
-        <!-- أوراق المنتجات الديناميكية بتنزل هنا -->
-
     </div>
 
-    <!-- الفوتر مع روابط التنسيق -->
-    <footer id="footerLinks">
-        <a href="#">إنستغرام</a> | 
-        <a href="#">فيسبوك</a> | 
-        <a href="#">واتساب</a>
+    <!-- الفوتر المطلوب -->
+    <footer>
+        <a href="https://facebook.com" target="_blank">فيسبوك</a>
+        <a href="https://wa.me/" target="_blank">واتساب للجملة</a>
+        <a href="https://t.me/" target="_blank">تليجرام</a>
     </footer>
+
+    <!-- صفحة الحجز (DM المستقلة) -->
+    <div class="checkout-container" id="checkoutModal">
+        <div class="glass-card" style="max-width: 450px; margin: 20px auto;">
+            <h3 style="color: var(--dark-pink); margin-bottom: 10px;">أهلاً بحضرتك يا فندم 🛒</h3>
+            <p style="font-size: 13px; color: #666; margin-bottom: 15px;">أدخلي بياناتك لتأكيد طلب حجز المنتج: <b id="checkoutItemName"></b></p>
+            
+            <div class="input-group">
+                <label>اسم العميل:</label>
+                <input type="text" id="custName" placeholder="ثلاثي أو ثنائي...">
+            </div>
+            <div class="input-group">
+                <label>رقم التليفون الأول:</label>
+                <input type="tel" id="custPhone1" placeholder="01xxxxxxxx">
+            </div>
+            <div class="input-group">
+                <label>رقم التليفون الثاني:</label>
+                <input type="tel" id="custPhone2" placeholder="01xxxxxxxx (اختياري)">
+            </div>
+            <div class="input-group">
+                <label>العنوان بالتفصيل:</label>
+                <textarea id="custAddress" placeholder="المحافظة، المركز، الشارع..."></textarea>
+            </div>
+
+            <button class="order-btn" onclick="submitOrder()" style="width: 100%;">إرسال الطلب الآن ✨</button>
+            <button class="close-btn" onclick="closeCheckout()" style="width: 100%; background: #ccc;">إلغاء</button>
+        </div>
+    </div>
 
     <!-- لوحة تحكم الأدمن -->
     <div class="admin-panel" id="adminPanel">
-        <h3>لوحة إدارة الشافعي ستور ⚙️</h3>
+        <h3 style="color: var(--dark-pink); margin-bottom: 15px;">لوحة إدارة الشافعي ستور ⚙️</h3>
         
         <div class="input-group">
-            <label>تغيير الخط (Font):</label>
+            <label>تخصيص الخطوط:</label>
             <select id="fontSelect" onchange="changeFont(this.value)">
                 <option value="'Tajawal', sans-serif">خط الآيفون (Tajawal)</option>
                 <option value="'Cairo', sans-serif">خط القاهرة (Cairo)</option>
-                <option value="'Reem Kufi', sans-serif">خط كوفي (Reem Kufi)</option>
+                <option value="'El Messiri', sans-serif">خط المسيري الراقي</option>
+                <option value="'Amiri', serif">خط أميري كلاسيكي</option>
+                <option value="'Reem Kufi', sans-serif">خط كوفي</option>
             </select>
         </div>
 
         <hr style="margin: 15px 0; border: 0.5px solid #eee;">
 
-        <h4>إضافة منتج/صفحة جديدة:</h4>
+        <h4>إضافة منتج جديد:</h4>
         <div class="input-group">
             <label>اسم المنتج:</label>
-            <input type="text" id="pTitle" placeholder="مثلاً: فستان وردي رقيق">
+            <input type="text" id="pTitle" placeholder="مثلاً: دريس سهرة تريند">
         </div>
         <div class="input-group">
             <label>وصف المنتج:</label>
-            <textarea id="pDesc" placeholder="اكتبي الوصف والمقاسات المتاحة..."></textarea>
+            <textarea id="pDesc" placeholder="تفاصيل المنتج وخاماته..."></textarea>
         </div>
         <div class="input-group">
-            <label>رابط صورة المنتج (URL):</label>
-            <input type="text" id="pImg" placeholder="ضع رابط الصورة هنا">
+            <label>تفاصيل الشحن (السعر والشحن):</label>
+            <input type="text" id="pShipping" placeholder="مثلاً: السعر 350ج والشحن حسب المحافظة">
         </div>
-        <button class="order-btn" onclick="addNewProduct()" style="width: 100%;">إضافة المنتج الآن ✨</button>
+        <div class="input-group">
+            <label>إرفاق صورة المنتج:</label>
+            <input type="file" id="pImageFile" accept="image/*">
+        </div>
+        <button class="order-btn" onclick="addNewProduct()" style="width: 100%;">إضافة المنتج ونشره ✨</button>
 
         <hr style="margin: 15px 0; border: 0.5px solid #eee;">
         
-        <h4>طلبات الحجز الواردة (DM/إشعارات):</h4>
-        <div id="ordersList" style="text-align: right; font-size: 13px; color: #444; max-height: 150px; overflow-y: auto; background: #fff0f3; padding: 10px; border-radius: 10px;">
-            لا توجد طلبات جديدة حالياً.
+        <h4>طلبات الحجز الواردة (DM):</h4>
+        <div id="ordersList" style="font-size: 13px; color: #444; max-height: 180px; overflow-y: auto; background: #fff0f3; padding: 10px; border-radius: 10px;">
+            لا توجد طلبات حجز جديدة.
         </div>
 
-        <button class="close-admin" onclick="closeAdminModal()">إغلاق لوحة التحكم</button>
+        <button class="close-btn" onclick="closeAdminModal()">إغلاق لوحة التحكم</button>
     </div>
 
-    <!-- صوت الإشعار الهادئ النقي عند الحجز -->
     <audio id="notifSound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3" preload="auto"></audio>
 
     <script>
-        // كلمة السر الافتراضية للأدمن
         const ADMIN_PASSWORD = "hafsa";
         let isAdminLoggedIn = false;
+        let selectedProductForOrder = "";
 
-        // استرجاع البيانات المجهزة في LocalStorage
         let products = JSON.parse(localStorage.getItem('shafie_products')) || [];
         let orders = JSON.parse(localStorage.getItem('shafie_orders')) || [];
+        let savedFont = localStorage.getItem('shafie_font');
 
         window.onload = function() {
+            if(savedFont) {
+                document.documentElement.style.setProperty('--font-family', savedFont);
+                document.getElementById('fontSelect').value = savedFont;
+            }
             renderProducts();
             renderOrders();
         };
 
         function renderProducts() {
             const slider = document.getElementById('slider');
-            // نحتفظ بالصفحة الأولى كما هي
             const welcomePage = slider.children[0].outerHTML;
             slider.innerHTML = welcomePage;
 
-            products.forEach((prod, idx) => {
+            products.forEach((prod) => {
                 const pageDiv = document.createElement('div');
                 pageDiv.className = 'page';
                 pageDiv.innerHTML = `
                     <div class="glass-card">
-                        <img src="${prod.img || 'https://via.placeholder.com/300x250?text=صورة+المنتج'}" class="product-img">
+                        ${prod.img ? `<img src="${prod.img}" class="product-img">` : ''}
                         <div class="product-title">${prod.title}</div>
                         <div class="product-desc">${prod.desc}</div>
-                        <button class="order-btn" onclick="makeOrder('${prod.title}')">حجز المنتج الآن 🛍️</button>
+                        <div class="product-shipping">📦 ${prod.shipping}</div>
+                        <button class="order-btn" onclick="openCheckout('${prod.title}')">حجز المنتج الآن 🛍️</button>
                     </div>
                 `;
                 slider.appendChild(pageDiv);
             });
         }
 
-        // فتح وإغلاق لوحة الأدمن مع الباسورد
         function openAdminModal() {
             if(!isAdminLoggedIn) {
-                let pass = prompt("برجاء أدخال كلمة سر الأدمن الخاصة بك:");
+                let pass = prompt("أدخلي كلمة سر الأدمن:");
                 if(pass === ADMIN_PASSWORD) {
                     isAdminLoggedIn = true;
                     document.getElementById('adminPanel').style.display = 'block';
@@ -375,60 +410,101 @@
             document.getElementById('adminPanel').style.display = 'none';
         }
 
-        // إمكانية تغيير الفونت للأدمن
         function changeFont(fontName) {
             document.documentElement.style.setProperty('--font-family', fontName);
             localStorage.setItem('shafie_font', fontName);
         }
 
-        // إضافة منتج جديد بواسطة الأدمن
         function addNewProduct() {
             let title = document.getElementById('pTitle').value;
             let desc = document.getElementById('pDesc').value;
-            let img = document.getElementById('pImg').value;
+            let shipping = document.getElementById('pShipping').value;
+            let fileInput = document.getElementById('pImageFile');
 
-            if(!title) { alert("من فضلك ادخلي اسم المنتج!"); return; }
+            if(!title) { 
+                alert("برجاء كتابة اسم المنتج على الأقل!"); 
+                return; 
+            }
 
-            products.push({ title, desc, img });
+            if(fileInput.files && fileInput.files[0]) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    saveProductData(title, desc, shipping, e.target.result);
+                };
+                reader.readAsDataURL(fileInput.files[0]);
+            } else {
+                saveProductData(title, desc, shipping, "");
+            }
+        }
+
+        function saveProductData(title, desc, shipping, imgSrc) {
+            products.push({ title, desc, shipping, img: imgSrc });
             localStorage.setItem('shafie_products', JSON.stringify(products));
             renderProducts();
 
-            // تفريغ المدخلات
             document.getElementById('pTitle').value = '';
             document.getElementById('pDesc').value = '';
-            document.getElementById('pImg').value = '';
-            alert("تمت إضافة الصفحة/المنتج بنجاح!");
+            document.getElementById('pShipping').value = '';
+            document.getElementById('pImageFile').value = '';
+            alert("تمت إضافة المنتج بنجاح وحفظه تماماً في الويبسايت! ✨");
         }
 
-        // طلب العميل وإرسال الإشعار
-        function makeOrder(productName) {
-            let customerName = prompt("برجاء كتابة اسمك ورقم تليفونك لتأكيد الحجز:");
-            if(customerName) {
-                let order = {
-                    product: productName,
-                    customer: customerName,
-                    time: new Date().toLocaleTimeString('ar-EG')
-                };
-                orders.push(order);
-                localStorage.setItem('shafie_orders', JSON.stringify(orders));
-                
-                // تشغيل صوت الإشعار الناعم
-                document.getElementById('notifSound').play();
-                alert("تم إرسال طلبك بنجاح! وسنتواصل مع حضرتك فوراً ✨");
-                
-                renderOrders();
+        function openCheckout(productName) {
+            selectedProductForOrder = productName;
+            document.getElementById('checkoutItemName').innerText = productName;
+            document.getElementById('checkoutModal').style.display = 'block';
+        }
+
+        function closeCheckout() {
+            document.getElementById('checkoutModal').style.display = 'none';
+        }
+
+        function submitOrder() {
+            let name = document.getElementById('custName').value;
+            let phone1 = document.getElementById('custPhone1').value;
+            let phone2 = document.getElementById('custPhone2').value;
+            let address = document.getElementById('custAddress').value;
+
+            if(!name || !phone1) {
+                alert("برجاء كتابة الاسم ورقم الهاتف الأساسي على الأقل!");
+                return;
             }
+
+            let newOrder = {
+                product: selectedProductForOrder,
+                name, phone1, phone2, address,
+                time: new Date().toLocaleTimeString('ar-EG', {hour: '2-digit', minute:'2-digit'})
+            };
+
+            orders.push(newOrder);
+            localStorage.setItem('shafie_orders', JSON.stringify(orders));
+
+            document.getElementById('notifSound').play();
+            alert("تم إرسال طلبك بنجاح وسنتواصل مع حضرتك فوراً! 🌸");
+            closeCheckout();
+            renderOrders();
+
+            document.getElementById('custName').value = '';
+            document.getElementById('custPhone1').value = '';
+            document.getElementById('custPhone2').value = '';
+            document.getElementById('custAddress').value = '';
         }
 
         function renderOrders() {
             let container = document.getElementById('ordersList');
             if(orders.length === 0) {
-                container.innerHTML = "لا توجد طلبات جديدة حالياً.";
+                container.innerHTML = "لا توجد طلبات حجز جديدة.";
                 return;
             }
             container.innerHTML = '';
             orders.forEach((ord, index) => {
-                container.innerHTML += `<p><b>${index+1}. ${ord.product}</b> - طلب بواسطة: ${ord.customer} (${ord.time})</p>`;
+                container.innerHTML += `
+                    <div style="border-bottom: 1px dashed #d87093; margin-bottom: 8px; padding-bottom: 5px;">
+                        <b>#${index+1} منتج: ${ord.product}</b><br>
+                        العميل: ${ord.name} | التليفون: ${ord.phone1} ${ord.phone2 ? ' / '+ord.phone2 : ''}<br>
+                        العنوان: ${ord.address} <span style="color:#888; font-size:11px;">(${ord.time})</span>
+                    </div>
+                `;
             });
         }
     </script>
