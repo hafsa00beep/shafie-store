@@ -19,7 +19,7 @@
         }
 
         body {
-            font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Tajawal', sans-serif;
             background: linear-gradient(135deg, #ffb7c5 0%, #fff0f3 50%, #ffb7c5 100%);
             background-attachment: fixed;
             color: #333;
@@ -64,7 +64,6 @@
             z-index: 1;
         }
 
-        /* Header */
         .header {
             background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
@@ -102,6 +101,7 @@
             font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(216, 112, 147, 0.3);
+            font-family: inherit;
         }
 
         .btn:hover {
@@ -123,7 +123,6 @@
             background: rgba(216, 112, 147, 0.3);
         }
 
-        /* Main Content Area */
         .content {
             flex: 1;
             overflow: hidden;
@@ -154,10 +153,6 @@
             border-radius: 3px;
         }
 
-        .carousel-container::-webkit-scrollbar-thumb:hover {
-            background: rgba(216, 112, 147, 0.6);
-        }
-
         .page-card {
             width: 100%;
             height: 100%;
@@ -170,7 +165,7 @@
         }
 
         .card-content {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(20px);
             border-radius: 24px;
             padding: 40px;
@@ -211,11 +206,6 @@
         @keyframes float {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-10px); }
-        }
-
-        /* Product Card */
-        .product-card {
-            position: relative;
         }
 
         .product-image {
@@ -280,6 +270,7 @@
             font-weight: 700;
             transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(216, 112, 147, 0.3);
+            font-family: inherit;
         }
 
         .btn-book:hover {
@@ -298,6 +289,7 @@
             font-size: 14px;
             font-weight: 600;
             transition: all 0.3s ease;
+            font-family: inherit;
         }
 
         .btn-delete:hover {
@@ -305,7 +297,6 @@
             transform: translateY(-3px);
         }
 
-        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -435,11 +426,6 @@
             background: rgba(255, 183, 197, 0.1);
         }
 
-        .form-input-file:active {
-            transform: scale(0.98);
-        }
-
-        /* Admin Panel */
         .admin-tabs {
             display: flex;
             gap: 12px;
@@ -459,6 +445,7 @@
             border-bottom: 3px solid transparent;
             transition: all 0.3s ease;
             white-space: nowrap;
+            font-family: inherit;
         }
 
         .admin-tab-btn.active {
@@ -525,4 +512,16 @@
         }
 
         .order-item:hover {
-            background
+            background: rgba(216, 112, 147, 0.1);
+        }
+
+        .order-header {
+            font-weight: 700;
+            color: #d87093;
+            margin-bottom: 8px;
+        }
+
+        .order-detail {
+            font-size: 14px;
+            color: #666;
+            margin-bottom:
