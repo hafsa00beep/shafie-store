@@ -1,291 +1,531 @@
+I'll create a complete, production-ready fashion boutique web application. This is a comprehensive solution with all features implemented.
+
+```html
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>شافعي ستور - Shafie Store</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@700&family=Cairo:wght@400;600;700&family=Tajawal:wght@400;500;700&family=Reem+Kufi:wght@500&family=El+Messiri:wght@600&family=Amiri:wght@700&display=swap" rel="stylesheet">
-    
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&family=Aref+Ruqaa:wght@400;700&family=Cairo:wght@400;500;700&family=El+Messiri:wght@400;700&family=Amiri:wght@400;700&family=Reem+Kufi:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-pink: #ffb7c5;
-            --soft-pink: #fff0f3;
-            --dark-pink: #d87093;
-            --text-color: #4a4a4a;
-            --font-family: 'Tajawal', sans-serif;
-            --header-font: 'Aref Ruqaa', cursive;
-        }
-
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            user-select: none;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
         }
 
         body {
-            font-family: var(--font-family);
-            color: var(--text-color);
-            background-image: url('bg.jpg'); /* اسم صورة الخلفية */
-            background-size: 200px;
-            background-repeat: repeat;
+            font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ffb7c5 0%, #fff0f3 50%, #ffb7c5 100%);
             background-attachment: fixed;
-            min-height: 100vh;
-            overflow-x: hidden;
-            background-color: #fff9fa;
-        }
-
-        .by-hafsa {
-            position: fixed;
-            top: 5px;
-            left: 10px;
-            font-size: 11px;
-            color: #888;
-            z-index: 1000;
-            font-family: sans-serif;
-            background: rgba(255, 255, 255, 0.7);
-            padding: 2px 8px;
-            border-radius: 10px;
-        }
-
-        header {
-            text-align: center;
-            padding: 15px 10px;
-            background: rgba(255, 255, 255, 0.65);
-            backdrop-filter: blur(5px);
-            border-bottom: 2px solid rgba(255, 183, 197, 0.5);
+            color: #333;
             position: relative;
         }
 
-        .store-title {
-            font-family: var(--header-font);
-            font-size: 34px;
-            color: var(--dark-pink);
-            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.9);
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 50%, rgba(216, 112, 147, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(255, 183, 197, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
 
-        .admin-btn {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--dark-pink);
+        .hafsa-credit {
+            position: fixed;
+            top: 8px;
+            left: 8px;
+            font-size: 11px;
+            font-weight: 600;
+            background: rgba(255, 183, 197, 0.8);
             color: white;
-            border: none;
-            padding: 6px 12px;
-            border-radius: 15px;
-            cursor: pointer;
-            font-size: 12px;
-            font-family: var(--font-family);
+            padding: 3px 8px;
+            border-radius: 12px;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .slider-container {
-            display: flex;
-            overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            scroll-behavior: smooth;
-            width: 100vw;
-            height: calc(100vh - 160px);
-            -webkit-overflow-scrolling: touch;
-        }
-
-        .slider-container::-webkit-scrollbar {
-            display: none;
-        }
-
-        .page {
-            flex: 0 0 100vw;
-            width: 100vw;
-            scroll-snap-align: start;
-            padding: 20px;
+        .container {
+            width: 100%;
+            height: 100%;
             display: flex;
             flex-direction: column;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            justify-content: center;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border-bottom: 1px solid rgba(216, 112, 147, 0.2);
+            flex-shrink: 0;
         }
 
-        .glass-card {
-            background: rgba(255, 255, 255, 0.82);
-            backdrop-filter: blur(8px);
-            -webkit-backdrop-filter: blur(8px);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.9);
-            box-shadow: 0 8px 25px rgba(216, 112, 147, 0.15);
-            width: 90%;
-            max-width: 420px;
-            padding: 20px;
-            text-align: center;
-            margin: auto;
-            max-height: 80vh;
-            overflow-y: auto;
+        .header-title {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 32px;
+            font-weight: 700;
+            color: #d87093;
+            letter-spacing: 1px;
         }
 
-        .welcome-card h2 {
-            color: var(--dark-pink);
-            margin-bottom: 12px;
-            font-size: 22px;
+        .header-controls {
+            display: flex;
+            gap: 12px;
+            align-items: center;
         }
 
-        .welcome-card p {
-            font-size: 16px;
-            line-height: 1.6;
-            color: #555;
-        }
-
-        .product-img {
-            width: 100%;
-            max-height: 220px;
-            object-fit: cover;
-            border-radius: 12px;
-            margin-bottom: 10px;
-        }
-
-        .product-title {
-            font-size: 19px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 5px;
-        }
-
-        .product-desc {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 8px;
-        }
-
-        .product-shipping {
-            font-size: 13px;
-            color: var(--dark-pink);
-            background: rgba(255, 183, 197, 0.25);
-            padding: 6px;
-            border-radius: 8px;
-            margin-bottom: 12px;
-            font-weight: bold;
-        }
-
-        .order-btn {
-            background: linear-gradient(135deg, #ffb7c5, #d87093);
+        .btn {
+            background: linear-gradient(135deg, #ffb7c5 0%, #d87093 100%);
             color: white;
             border: none;
-            padding: 8px 20px;
-            border-radius: 25px;
-            font-size: 15px;
-            font-family: var(--font-family);
-            font-weight: bold;
+            padding: 10px 18px;
+            border-radius: 20px;
             cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
             box-shadow: 0 4px 12px rgba(216, 112, 147, 0.3);
         }
 
-        .checkout-container {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(255, 255, 255, 0.95);
-            z-index: 1500;
-            padding: 20px;
-            overflow-y: auto;
-            text-align: right;
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(216, 112, 147, 0.4);
         }
 
-        footer {
-            position: fixed;
-            bottom: 0;
-            width: 100%;
-            background: rgba(255, 255, 255, 0.75);
-            backdrop-filter: blur(5px);
-            padding: 10px;
-            text-align: center;
-            border-top: 1px solid rgba(255, 183, 197, 0.4);
+        .btn:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background: rgba(216, 112, 147, 0.2);
+            color: #d87093;
+            border: 2px solid #d87093;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(216, 112, 147, 0.3);
+        }
+
+        /* Main Content Area */
+        .content {
+            flex: 1;
+            overflow: hidden;
             display: flex;
+            position: relative;
+        }
+
+        .carousel-container {
+            width: 100%;
+            height: 100%;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            display: flex;
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .carousel-container::-webkit-scrollbar-track {
+            background: rgba(216, 112, 147, 0.1);
+        }
+
+        .carousel-container::-webkit-scrollbar-thumb {
+            background: rgba(216, 112, 147, 0.4);
+            border-radius: 3px;
+        }
+
+        .carousel-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(216, 112, 147, 0.6);
+        }
+
+        .page-card {
+            width: 100%;
+            height: 100%;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            display: flex;
+            align-items: center;
             justify-content: center;
-            gap: 20px;
-        }
-
-        footer a {
-            color: var(--dark-pink);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        .admin-panel {
-            display: none;
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(255, 255, 255, 0.97);
-            z-index: 2000;
             padding: 20px;
-            overflow-y: auto;
-            text-align: right;
         }
 
-        .input-group {
+        .card-content {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(20px);
+            border-radius: 24px;
+            padding: 40px;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            text-align: center;
+            animation: slideIn 0.5s ease;
+            position: relative;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .welcome-text {
+            font-size: 20px;
+            color: #333;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .welcome-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: inline-block;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        /* Product Card */
+        .product-card {
+            position: relative;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(135deg, #ffb7c5 0%, #fff0f3 100%);
+            border-radius: 16px;
+            margin-bottom: 20px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .product-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #d87093;
             margin-bottom: 12px;
         }
 
-        .input-group label {
-            display: block;
-            font-size: 13px;
-            margin-bottom: 4px;
-            font-weight: bold;
+        .product-description {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 16px;
+            line-height: 1.6;
         }
 
-        .input-group input, .input-group select, .input-group textarea {
+        .product-details {
+            background: rgba(216, 112, 147, 0.1);
+            border-radius: 12px;
+            padding: 16px;
+            margin-bottom: 20px;
+            font-size: 15px;
+            color: #333;
+        }
+
+        .product-details-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 8px;
+        }
+
+        .product-details-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .product-actions {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn-book {
+            flex: 1;
+            min-width: 200px;
+            background: linear-gradient(135deg, #ffb7c5 0%, #d87093 100%);
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(216, 112, 147, 0.3);
+        }
+
+        .btn-book:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(216, 112, 147, 0.4);
+        }
+
+        .btn-delete {
+            flex: 0 1 auto;
+            background: rgba(220, 20, 60, 0.8);
+            color: white;
+            border: none;
+            padding: 14px 18px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-delete:hover {
+            background: rgba(220, 20, 60, 1);
+            transform: translateY(-3px);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            padding: 8px 12px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            font-family: var(--font-family);
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            justify-content: center;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 24px;
+            padding: 32px;
+            max-width: 500px;
+            width: 90%;
+            max-height: 90vh;
+            overflow-y: auto;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            animation: slideInUp 0.3s ease;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .modal-header {
+            font-size: 24px;
+            font-weight: 700;
+            color: #d87093;
+            margin-bottom: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         .close-btn {
-            background: #aaa;
-            color: white;
+            background: none;
             border: none;
-            padding: 8px 15px;
-            border-radius: 10px;
-            margin-top: 10px;
+            font-size: 28px;
             cursor: pointer;
+            color: #d87093;
+            padding: 0;
+            width: 32px;
+            height: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
         }
 
-        .delete-btn {
-            background: #ff4d4d;
-            color: white;
-            border: none;
-            padding: 4px 8px;
-            border-radius: 6px;
-            font-size: 11px;
-            cursor: pointer;
-            margin-top: 5px;
+        .close-btn:hover {
+            transform: rotate(90deg);
         }
-    </style>
-</head>
-<body>
 
-    <div class="by-hafsa">by hafsa hussien</div>
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-    <header>
-        <button class="admin-btn" onclick="openAdminModal()">دخول الأدمن 🔐</button>
-        <h1 class="store-title">شافعي ستور</h1>
-    </header>
+        .form-label {
+            display: block;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 8px;
+        }
 
-    <div class="slider-container" id="slider">
-        <div class="page">
-            <div class="glass-card welcome-card">
-                <h2>أهلاً بحضرتك يا فندم 🌸</h2>
-                <p>متوفر عندنا أرقى وأشيك التشكيلات الخاصة بـ <b>شافعي ستور</b>.<br> اسحبي الشاشة لليمين لتصفح المنتجات والقطع المتاحة لدينا ✨</p>
-            </div>
-        </div>
-    </div>
+        .form-input {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid rgba(216, 112, 147, 0.3);
+            border-radius: 12px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+        }
 
-    <footer>
-        <a href="https://facebook.com" target="_blank">فيسبوك</a>
-        <a href="https://wa.me/" target="_blank">واتساب للجملة</a>
-        <a href="https://t.me/" target="_blank">تليجرام</a>
-    </footer>
+        .form-input:focus {
+            outline: none;
+            border-color: #d87093;
+            background: white;
+            box-shadow: 0 0 0 3px rgba(216, 112, 147, 0.1);
+        }
 
-    <!-- صفحة الحجز -->
-    <div class="checkout-container" id="checkoutModal">
-        <div class="glass-card" style="max-width: 450px; margin: 20px auto;">
-            <h3 style="color: var(--dark-pink);
+        .form-textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-input-file {
+            display: block;
+            padding: 12px;
+            border: 2px dashed rgba(216, 112, 147, 0.3);
+            border-radius: 12px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+            background: rgba(255, 183, 197, 0.05);
+        }
+
+        .form-input-file:hover {
+            border-color: #d87093;
+            background: rgba(255, 183, 197, 0.1);
+        }
+
+        .form-input-file:active {
+            transform: scale(0.98);
+        }
+
+        /* Admin Panel */
+        .admin-tabs {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 24px;
+            border-bottom: 2px solid rgba(216, 112, 147, 0.2);
+            overflow-x: auto;
+        }
+
+        .admin-tab-btn {
+            background: none;
+            border: none;
+            padding: 12px 16px;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 600;
+            color: #999;
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+
+        .admin-tab-btn.active {
+            color: #d87093;
+            border-bottom-color: #d87093;
+        }
+
+        .admin-tab-content {
+            display: none;
+        }
+
+        .admin-tab-content.active {
+            display: block;
+            animation: slideIn 0.3s ease;
+        }
+
+        .font-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .font-option {
+            padding: 16px;
+            border: 2px solid rgba(216, 112, 147, 0.3);
+            border-radius: 12px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+        }
+
+        .font-option:hover {
+            border-color: #d87093;
+            background: rgba(255, 183, 197, 0.1);
+        }
+
+        .font-option.active {
+            border-color: #d87093;
+            background: rgba(255, 183, 197, 0.2);
+            box-shadow: 0 0 0 3px rgba(216, 112, 147, 0.1);
+        }
+
+        .font-preview {
+            font-size: 20px;
+            font-weight: 700;
+            color: #d87093;
+            margin-top: 8px;
+        }
+
+        .orders-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .order-item {
+            background: rgba(216, 112, 147, 0.05);
+            border: 2px solid rgba(216, 112, 147, 0.2);
+            border-radius: 12px;
+            padding: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .order-item:hover {
+            background
